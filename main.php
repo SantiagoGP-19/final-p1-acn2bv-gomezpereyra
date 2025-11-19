@@ -2,7 +2,7 @@
 <main>
     <section aria-label="Buscador y filtros">
         <h2>Buscar y filtrar</h2>
-        <form method="get">
+        <form method="get" id="form-busqueda">
             <label for="q">Título</label>
             <input id="q" type="text" name="q" placeholder="Buscar por título..." value="<?= esc($q); ?>">
 

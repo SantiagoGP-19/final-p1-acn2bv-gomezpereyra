@@ -2,7 +2,7 @@
 include_once("conexion.php");
 ?>
 
-<section aria-label="Listado de álbumes" class="grid">
+<section aria-label="Listado de álbumes" class="grid" id="contenedor-albums">
         <?php if ($resultsCount === 0): ?>
             <p class="no-results">No se encontraron resultados para la búsqueda indicada.</p>
         <?php else: ?>

@@ -40,6 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $items[] = $new;
     }
 }
+
 $q = trim($_GET['q'] ?? '');
 $categoriaFilter = trim($_GET['categoria'] ?? '');
 $tema = trim($_GET['tema'] ?? 'claro');
