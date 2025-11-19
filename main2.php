@@ -33,7 +33,7 @@ include_once("conexion.php");
             <p class="ok">Gracias — recibimos tu sugerencia: <strong><?= esc($success['title']); ?></strong></p>
         <?php endif; ?>
 
-        <form method="post" action="?tema=<?= esc($tema); ?>">
+        <form id="form-sugerir" method="post" action="?tema=<?= esc($tema); ?>">
             <div class="form-grid">
                 <div>
                     <label for="title">Título *</label>
