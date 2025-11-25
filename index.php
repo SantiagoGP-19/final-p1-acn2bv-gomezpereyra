@@ -16,6 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $categoria = trim($_POST['categoria'] ?? '');
     $descripcion = trim($_POST['descripcion'] ?? '');
     $imagen = trim($_POST['imagen'] ?? '');
+    $anio = !empty($_POST['anio']) ? $_POST['anio'] : date('Y');
 
     if ($title === '') {
         $errors['title'] = 'El título es obligatorio.';
@@ -38,8 +39,9 @@ if (empty($errors)) {
         $c = addslashes($categoria);
         $d = addslashes($descripcion);
         $u = addslashes($imagen);
+        $y = (int)$anio;
 
-        $sqlInsert = "INSERT INTO albuns (titulo, artista, categoria, descripcion, url, anio) VALUES ('$t', '$a', '$c', '$d', '$u', '$anio')";
+$sqlInsert = "INSERT INTO albuns (titulo, artista, categoria, descripcion, url, anio) VALUES ('$t', '$a', '$c', '$d', '$u', '$y')";
         try {
             $db->ejecutar($sqlInsert);
             

@@ -16,23 +16,22 @@ body.tema-oscuro {
     --card-border: #18202a;
 }
 
-body.tema-oscuro a{
+body.tema-oscuro a {
     color: #e6eef8;
 }
 
 body.tema-oscuro input,
 body.tema-oscuro select,
 body.tema-oscuro textarea {
-    color: #fff;           
-    background: var(--card); 
+    color: #fff;
+    background: var(--card);
     border: 1px solid var(--card-border);
 }
 
 body.tema-oscuro input::placeholder,
 body.tema-oscuro textarea::placeholder {
-    color: #ccc; 
+    color: #ccc;
 }
-
 
 body {
     margin: 0;
@@ -57,7 +56,8 @@ h1 {
     font-size: 1.6rem;
     margin: 0;
 }
-a{
+
+a {
     text-decoration: none;
     color: #0b0f14;
 }
@@ -66,7 +66,6 @@ p.lead {
     margin: 0;
     color: var(--muted);
 }
-
 
 .controls {
     display: flex;
@@ -81,11 +80,15 @@ p.lead {
     align-items: center;
 }
 
-input[type="text"], select {
+input[type="text"],
+input[type="number"],
+select,
+textarea {
     padding: 8px 10px;
     border: 1px solid var(--card-border);
     background: var(--card);
     border-radius: 6px;
+    font-family: inherit;
 }
 
 button {
@@ -177,7 +180,6 @@ a.btn-link {
     border: 1px solid var(--card-border);
 }
 
-
 .sugerir {
     margin-top: 22px;
     background: var(--card);
@@ -192,7 +194,8 @@ a.btn-link {
     font-weight: 600;
 }
 
-.sugerir input[type="text"], 
+.sugerir input[type="text"],
+.sugerir input[type="number"],
 .sugerir textarea {
     width: 100%;
     box-sizing: border-box;
@@ -227,7 +230,6 @@ a.btn-link {
     margin-bottom: 8px;
 }
 
-
 footer {
     margin-top: 26px;
     color: var(--muted);
@@ -239,6 +241,7 @@ footer {
         flex-direction: column;
         align-items: flex-start;
     }
+
     .controls {
         flex-direction: column;
     }

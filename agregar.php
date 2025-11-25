@@ -8,15 +8,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $categoria = $_POST['categoria'] ?? '';
     $descripcion = $_POST['descripcion'] ?? '';
     $imagen = !empty($_POST['imagen']) ? $_POST['imagen'] : 'https://picsum.photos/seed/default/400/250';
-    $anio = date('Y'); // Año actual
+    $anio = !empty($_POST['anio']) ? $_POST['anio'] : date('Y');
     if ($titulo === '' || $categoria === '' || $descripcion === '') {
         echo json_encode(['status' => 'error', 'message' => 'Faltan datos obligatorios']);
         exit;
     }
     try {
         $db = new conexion();
-        $sql = "INSERT INTO `albuns` (`Id`, `titulo`, `artista`, `categoria`, `descripcion`, `url`, `anio`) 
-                VALUES (NULL, '$titulo', '$artista', '$categoria', '$descripcion', '$imagen', '$anio')";
+        $t = addslashes($titulo);
+        $a = addslashes($artista);
+        $c = addslashes($categoria);
+        $d = addslashes($descripcion);
+        $u = addslashes($imagen);
+        $y = (int)$anio;
+
+        $sql = "INSERT INTO `albuns` (`Id`, `titulo`, `artista`, `categoria`, `descripcion`, `url`, `anio`) VALUES (NULL, '$t', '$a', '$c', '$d', '$u', '$y')";
 
         $db->ejecutar($sql);
         echo json_encode(['status' => 'success', 'message' => 'Álbum guardado correctamente']);
