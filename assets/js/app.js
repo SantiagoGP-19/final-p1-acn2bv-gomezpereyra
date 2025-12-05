@@ -1,6 +1,7 @@
 
 
 async function cargarAlbums(page = 1) {
+    currentPage = page;
     const q = document.getElementById('q')?.value.trim() || '';
     const categoria = document.getElementById('categoriaFiltro')?.value || '';
 
@@ -132,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const data = await res.json();
                 if (data.status === 'success') {
                     Swal.fire('¡Eliminado!', '', 'success');
-                    cargarAlbums(json.pagination ? json.pagination.current : 1);
+                    cargarAlbums(currentPage);
                 } else {
                     Swal.fire('Error', data.message || 'No se pudo eliminar', 'error');
                 }
@@ -149,7 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (data.status === 'success') {
             Swal.fire('¡Guardado!', '', 'success');
             modal.style.display = 'none';
-            cargarAlbums(json.pagination ? json.pagination.current : 1);
+            cargarAlbums(currentPage);
         } else {
             Swal.fire('Error', data.message || 'No se pudo guardar', 'error');
         }

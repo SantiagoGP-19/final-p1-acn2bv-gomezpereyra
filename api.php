@@ -5,8 +5,17 @@ include_once("conexion.php");
 
 $db = new Conexion();
 
+if (isset($_GET['id']) && is_numeric($_GET['id'])) {
+    $id = (int)$_GET['id'];
+    $stmt = $db->pdo->prepare("SELECT Id, titulo, artista, categoria, descripcion, url, anio FROM albuns WHERE Id = ?");
+    $stmt->execute([$id]);
+    $album = $stmt->fetch(PDO::FETCH_ASSOC);
+    echo json_encode($album ? [$album] : []);
+    exit;
+}
+
 $page = max(1, (int)($_GET['page'] ?? 1));
-$limit = 6;                                     
+$limit = 6; 
 $offset = ($page - 1) * $limit;
 
 $q = trim($_GET['q'] ?? '');
